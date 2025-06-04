@@ -4,19 +4,23 @@ elements sequence.
 You must write an algorithm that runs in O(n) time."""
 class Solution:
     def longestConsecutive(self, nums: list[int]) -> int:
-        order = sorted(nums)
-        ans = 0
-        check = 1
-        for i in range(len(order)-1):
-            if order[i+1] == order[i] + 1:
-                check += 1
-                if check > ans: 
-                    ans = check
-            elif order[i+1] == order[i]:
-                check += 0
+        nums = sorted(nums)
+        longest = 1
+        res = 1
+        if not nums:
+            return 0
+        
+        for i in range(len(nums)-1):
+            if nums[i] + 1 == nums[i+1]:
+                longest += 1
+                if longest > res:
+                    res = longest
+            elif nums[i] == nums[i+1]:
+                longest += 0
             else:
-                check = 1
-        return ans
+                longest = 1
+            
+        return res
                     
     
 obj = Solution()

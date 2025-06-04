@@ -2,14 +2,14 @@
 class Solution:
     def threesum(self, nums: list[int]) -> list[list[int]]:
         sol = []
-        nums.sort()
+        nums = sorted(nums)
 
         for i, num in enumerate(nums):
             if num > 0:
                 # if num > 0 then this is guaranteed not be greater than 0
                 # and so not a solution (solution are equal to 0)
                 break
-            if num == nums[i-1]:
+            if i > 0 and num == nums[i-1]:
                 # we want unique triplets so if this condition is met,
                 # the triplet cannot be uniue as the list is in order
                 continue

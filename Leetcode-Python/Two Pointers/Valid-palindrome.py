@@ -19,4 +19,18 @@ obj = Solution()
 
 res = obj.isPalindrome("0P")
 
-print(res)
+# Two Pointer Solution
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        s = ''.join(c.lower() for c in s if c.isalnum())
+        left = 0
+        right = len(s) - 1
+        while left < right:
+            r_let = s[right]
+            l_let = s[left]
+            if r_let == l_let:
+                left += 1
+                right -= 1
+            else:
+                return False
+        return True
