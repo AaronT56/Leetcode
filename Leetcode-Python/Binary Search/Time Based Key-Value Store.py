@@ -9,16 +9,13 @@ class TimeMap:
         self.store = defaultdict(list)
 
     def set(self, key: str, value: str, timestamp: int) -> None:
-        if key not in self.store:
-            self.store[key] = []
-
         self.store[key].append([value, timestamp])
         
     def get(self, key: str, timestamp: int) -> str:
         res = ""
         val = self.store.get(key, [])
         l = 0
-        r = len(val)
+        r = len(val) - 1
         while l <= r:
             m = (l + r) // 2
             # if we find that our obtained val is less than timestamp
@@ -28,5 +25,5 @@ class TimeMap:
                 res = val[m][0]
                 l = m + 1
             else:
-                l = m - 1
+                r = m - 1
         return res

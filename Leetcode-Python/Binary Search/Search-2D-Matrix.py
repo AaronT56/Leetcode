@@ -12,7 +12,12 @@ class Solution:
             # If you divide and take remainder you will have how far you are into the
             # row. So you can treat this like a flat array
             m = l + ((r-l) // 2)
-            row = m // cols
+            # Why cols in both cases? To get to the next row we have to go through a cetain
+            # number of columsn right? So we just divide by number of columns and floor to 
+            # get row. As for columns it will just be the remainder that we didnt take with
+            # row.
+            row = m // cols # This gives us how many full rows we've passed — i.e., which
+            # row we are in.
             col = m % cols
 
             if matrix[row][col] < target:
