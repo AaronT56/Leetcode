@@ -7,6 +7,9 @@ class Node:
 
 class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
+        # We initialise with None, None so that we that if we ever have a node that
+        # cur.next or cur.random in second loop outputs to None, we can handle that case
+        # easily. It is just to intialise the dictionary to be able to handle None cases.
         copyToNode = {None : None}
 
         cur = head

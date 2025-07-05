@@ -10,7 +10,7 @@ class Solution:
             slow = nums[slow]
             fast = nums[nums[fast]]
             if slow == fast:
-                return True
+                break
         
         # Once we have found our value we can find the exact point where the duplicate was
         # found by iterating through slow2 until slow2 == slow. The reason is because

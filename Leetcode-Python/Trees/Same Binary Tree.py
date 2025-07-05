@@ -26,7 +26,10 @@ class Solution:
             
             # If one of these calls returns false, then the whole tree will evaluate as
             # false. The recursive call is in the reutrn statement. So when a false is 
-            # returned, all calls afterwards will also return false.
+            # returned, all calls afterwards will also return false. Not we only
+            # use the .left and .right here because that is all we are checking. At
+            # each new node there will be a new unique left and right so we will check
+            # all nodes and we are just following the same path in checking every node.
             return dfs(node1.left, node2.left) and dfs(node1.right, node2.right)
         
         return dfs(p, q)

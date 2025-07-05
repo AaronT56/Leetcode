@@ -47,10 +47,16 @@ class Solution:
     
 
     def goodNodesBFS(self, root: TreeNode) -> int:
-
+        # This is a pretty cool clean solution actually. Kinda less clunky than the other
         def dfs(node, maxval):
             if not node:
                 return 0
             
             res = 1 if maxval <= node.val else 0
-            
+            maxval = max(maxval, node.val)
+            res += dfs(node.left, maxval)
+            res += dfs(node.right, maxval)
+            return res
+        res = dfs(root, root.val)
+        return res
+        
