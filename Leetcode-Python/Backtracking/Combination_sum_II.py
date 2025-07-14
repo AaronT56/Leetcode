@@ -29,7 +29,9 @@ class Solution:
             # the first place? That's why total is not adjusted. So we have two iterations,
             # one where we have the duplicates, and one where we have no duplicates and 
             # by saying, hey, if we never added that number we just added, what
-            # would happen?
+            # would happen? Remember this total is the total we had before we added nums[i]
+            # to the above function so we are essentially going back to that original total
+            # and continuing seeing what goes on afterwards.
             dfs(i + 1, summers, total)
         
         dfs(0, [], 0)

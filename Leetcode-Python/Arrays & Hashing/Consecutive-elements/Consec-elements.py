@@ -13,12 +13,13 @@ class Solution:
         for i in range(len(nums)-1):
             if nums[i] + 1 == nums[i+1]:
                 longest += 1
-                if longest > res:
-                    res = longest
+                
             elif nums[i] == nums[i+1]:
-                longest += 0
+                continue
             else:
                 longest = 1
+            
+            res = max(res, longest)
             
         return res
                     

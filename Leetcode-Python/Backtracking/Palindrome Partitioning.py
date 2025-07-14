@@ -23,8 +23,16 @@ class Solution:
                 # palindrome, as the path you took to get that palindrome matters.
                 # So you must always make sure to start your algorithm again after
                 # discovering a new path.
+                
                 if self.isPali(s, i, j):
                     part.append(s[i : j + 1])
+                    # We choose to split here. When we find a palindrome, we want to add
+                    # that to our res. So in order to split this string, we use our
+                    # backtrack function. One key insight for me is that you need to
+                    # collect ALL versions of parts. That's why it seems like there might
+                    # be repeated work, but actually it's backtracking just like 
+                    # any other problem and now seeing if there are any NEW solutions to
+                    # add to res after appending the trivial solution.
                     backtrack(j + 1)
                     part.pop()
         backtrack(0)

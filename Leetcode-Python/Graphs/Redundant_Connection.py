@@ -32,7 +32,7 @@ class Solution:
                 # return True from the above line. Then, we will backtrack until we get
                 # startCycle = -1 and return False. The key is to remember, that this
                 # dfs function will be called until it hits True, then work backwards
-                # appending to the cycle each time until it returns falls. And then 
+                # appending to the cycle each time until it returns False. And then 
                 # we will have a set with all members of the cycle! We will get false
                 # once we return to the first node in the cycle.
                 if dfs(nei, node):
